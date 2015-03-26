@@ -1,0 +1,348 @@
+@charset "UTF-8";
+
+/**
+ * @authors Petrus.Law (petrus.law@outlook.com)
+ * @date    2014-09-08 10:11:10
+ * @desc    petrus-3d-slide样式
+ * @github  https://www.github.com/pyrinelaw
+ */
+
+.petrus-select{ width: 100%; height: 50px; position: relative; color: #AAA; font-size: 13px; padding-bottom: 4px; font-family: "Lato",Calibri,Arial,sans-serif; }
+
+.petrus-select-tit-arrow{ width: 34px; height: 100%; position: absolute; right: 16px; top: 0px; background: url(../images/arrow.png) right center no-repeat; }
+
+.petrus-select-tit{ width: 100%; height: 100%; color: #AAA; letter-spacing: 1px; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1); text-align: center; line-height: 50px; cursor: pointer; }
+
+.petrus-select-list-wrap{ pointer-events: auto; overflow: hidden; position: absolute; top: 100%; left: 0px; width: 100%; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1); }
+
+/*.petrus-select-list-wrap{ transition: opacity 0.3s, transform-origin 0.3s, transform 0.3s; }*/
+
+.petrus-select-option{ height: 24px; line-height: 24px; padding-left: 10px; cursor: pointer; }
+.petrus-select-option.selected{ background: rgba(248, 248, 248, 0.2); }
+.petrus-select-option:hover{ background: rgba(248, 248, 248, 0.2); }
+.petrus-select-option.back{ padding-left: 2px; background: rgba(248, 248, 248, 0.3) }
+.petrus-select-option.back:hover{ background: rgba(248, 248, 248, 0.2) }
+
+.petrus-select-option-arrow{ width: 24px; height: 100%; float: right; margin-right: 8px; transform: rotate(-90deg); background: url(../images/arrow.png) center center no-repeat; }
+.petrus-select-option-arrow.back { float: left; margin-right: 0px;  transform: rotate(90deg); }
+
+.petrus-blue-select *{ color: #FFF; }
+.petrus-blue-select .petrus-select-tit{ background: #2ECBD8; box-shadow: 0px 3px 0px rgba(46, 203, 216, 0.2); font-weight: bold; }
+.petrus-blue-select .petrus-select-list-wrap{background: #2ECBD8; box-shadow: 0px 3px 0px rgba(46, 203, 216, 0.2); font-weight: bold; }
+
+.petrus-white-select *{ color: #AAA; }
+.petrus-white-select .petrus-select-tit{ background: #FFF; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2); font-weight: bold; }
+.petrus-white-select .petrus-select-list-wrap{background: #FFF; box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2); font-weight: bold; }
+
+.petrus-pink-select *{ color: #FFF; }
+.petrus-pink-select .petrus-select-tit{ background: #F68DBB; box-shadow: 0px 3px 0px rgba(246, 141, 187, 0.2); font-weight: bold; }
+.petrus-pink-select .petrus-select-list-wrap{background: #F68DBB; box-shadow: 0px 3px 0px rgba(246, 141, 187, 0.2); font-weight: bold; }
+
+.petrus-green-select *{ color: #FFF; }
+.petrus-green-select .petrus-select-tit{ background: #26B083; box-shadow: 0px 3px 0px rgba(38, 176, 131, 0.2); font-weight: bold; }
+.petrus-green-select .petrus-select-list-wrap{background: #26B083; box-shadow: 0px 3px 0px rgba(38, 176, 131, 0.2); font-weight: bold; }
+
+.petrus-grey-select *{ color: #333; }
+.petrus-grey-select .petrus-select-tit{ background: #EFEFEF; box-shadow: 0px 3px 0px rgba(239, 239, 239, 0.2); font-weight: bold; }
+.petrus-grey-select .petrus-select-list-wrap{background: #EFEFEF; box-shadow: 0px 3px 0px rgba(239, 239, 239, 0.2); font-weight: bold; }
+
+.petrus-black-select *{ color: #BBB; }
+.petrus-black-select .petrus-select-tit{ background: #262626; box-shadow: 0px 3px 0px rgba(38, 38, 38, 0.2); font-weight: bold; }
+.petrus-black-select .petrus-select-list-wrap{background: #262626; box-shadow: 0px 3px 0px rgba(38, 38, 38, 0.2); font-weight: bold; }
+
+
+@keyframes up{
+    from {
+        opacity: 0;
+        transform-origin: 50% 0% 0px;
+        transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform-origin: 50% 0% 0px;
+        transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+}
+
+@-webkit-keyframes up {
+    from {
+        opacity: 0;
+        -webkit-transform-origin: 50% 0% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform-origin: 50% 0% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+}
+
+@-o-keyframes up {
+    from {
+        opacity: 0;
+        -o-transform-origin: 50% 0% 0px;
+        -o-transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+    to {
+        opacity: 1;
+        -o-transform-origin: 50% 0% 0px;
+        -o-transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+}
+
+@keyframes down{
+    from {
+        opacity: 1;
+        -webkit-transform-origin: 50% 0% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+    to {
+        opacity: 0;
+        transform-origin: 50% 0% 0px;
+        transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+}
+
+@-webkit-keyframes down {
+    from {
+        opacity: 1;
+        -webkit-transform-origin: 50% 0% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform-origin: 50% 0% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+}
+
+@-o-keyframes down {
+    from {
+        opacity: 1;
+        -o-transform-origin: 50% 0% 0px;
+        -o-transform: perspective(600px) translate(0%, 0px) rotateX(0deg);
+    }
+    to {
+        opacity: 0;
+        -o-transform-origin: 50% 0% 0px;
+        -o-transform: perspective(600px) translate(0%, 20px) rotateX(-5deg);
+    }
+}
+
+@keyframes turn-show{
+    from {
+        opacity: 0;
+        transform-origin: 50% 50% 0px;
+        transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+    to {
+        opacity: 1;
+        transform-origin: 50% 50% 0px;
+        transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+}
+
+@-webkit-keyframes turn-show {
+    from {
+        opacity: 0;
+        -webkit-transform-origin: 50% 50% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform-origin: 50% 50% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+}
+
+
+@-o-keyframes turn-show {
+    from {
+        opacity: 0;
+        -o-transform-origin: 50% 50% 0px;
+        -o-transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+    to {
+        opacity: 1;
+        -o-transform-origin: 50% 50% 0px;
+        -o-transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+}
+
+@keyframes turn-hide{
+    from {
+        opacity: 1;
+        transform-origin: 50% 50% 0px;
+        transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+    to {
+        opacity: 0;
+        transform-origin: 50% 50% 0px;
+        transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+}
+
+@-webkit-keyframes turn-hide {
+    from {
+        opacity: 1;
+        -webkit-transform-origin: 50% 50% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform-origin: 50% 50% 0px;
+        -webkit-transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+}
+
+@-o-keyframes turn-hide {
+    from {
+        opacity: 1;
+        -o-transform-origin: 50% 50% 0px;
+        -o-transform: perspective(600px) translate(0%, 0%) rotateY(0deg);
+    }
+    to {
+        opacity: 0;
+        -o-transform-origin: 50% 50% 0px;
+        -o-transform: perspective(600px) translate(0%, 0%) rotateY(45deg);
+    }
+}
+
+@keyframes move-show{
+    from {
+        opacity: 0;
+        left: 50%
+    }
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@-webkit-keyframes move-show{
+    from {
+        opacity: 0;
+        left: 50%
+    }
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@-o-keyframes move-show{
+    from {
+        opacity: 0;
+        left: 50%
+    }
+    to {
+        opacity: 1;
+        left: 0;
+    }
+}
+
+@keyframes move-hide{
+    from {
+        opacity: 1;
+        left: 0
+    }
+    to {
+        opacity: 0;
+        left: 50%;
+    }
+}
+
+@-webkit-keyframes move-hide{
+    from {
+        opacity: 1;
+        left: 0
+    }
+    to {
+        opacity: 0;
+        left: 50%;
+    }
+}
+
+@-o-keyframes move-hide{
+    from {
+        opacity: 1;
+        left: 0
+    }
+    to {
+        opacity: 0;
+        left: 50%;
+    }
+}
+
+.petrus-select-list-wrap-up {
+    animation-name: up;
+    animation-duration: 0.3s;
+    animation-function: ease-in;
+    -webkit-animation-name: up;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-in;
+    -o-animation-name: up;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
+.petrus-select-list-wrap-down {
+    animation-name: down;
+    animation-duration: 0.3s;
+    animation-function: ease-in;
+    -webkit-animation-name: down;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-in;
+    -o-animation-name: down;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
+.petrus-select-list-wrap-turn-show {
+    animation-name: turn-hide;
+    animation-duration: 0.3s;
+    animation-function: ease-in;
+    -webkit-animation-name: turn-show;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-in;
+    -o-animation-name: turn-show;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
+.petrus-select-list-wrap-turn-hide {
+    animation-name: turn-hide;
+    animation-duration: 0.3s;
+    animation-function: ease-in;
+    -webkit-animation-name: turn-hide;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-in;
+    -o-animation-name: turn-hide;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
+.petrus-select-list-wrap-move-show {
+    animation-name: move-show;
+    animation-duration: 0.3s;
+    animation-function: ease-out;
+    -webkit-animation-name: move-show;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-out;
+    -o-animation-name: move-show;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
+.petrus-select-list-wrap-move-hide {
+    animation-name: move-hide;
+    animation-duration: 0.3s;
+    animation-function: ease-out;
+    -webkit-animation-name: move-hide;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-function: ease-out;
+    -o-animation-name: move-hide;
+    -o-animation-duration: 0.3s;
+    -o-animation-function: ease-in;
+}
+
