@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>petrus_select 下拉插件</title>
+
+    <link rel="stylesheet" href="src/css/petrus-select.css" />
+
+    <style type="text/css">
+
+        body{ padding: 20px 0; margin: 0px; background: black; }
+
+        .demo-1{margin: 0 auto; width: 300px;}
+
+        .bt-info{ margin: 50px auto; text-align: center; width: 300px; border: 1px solid #EEE; line-height: 50px; font-weight: bold; cursor: pointer; display: block; text-decoration: none; color: #FFF; font-size: 20px; }
+        .bt-info:hover{ border-width: 2px; }
+
+        .imgAdv{ text-align: center; min-height: 180px; }
+
+        .imgAdv img{ opacity: 0; border-radius: 50%; width: 120px; height: 120px; }
+
+        .imgAdv img.show{ transition: all 0.4s ease-in-out 0.05s; width: 180px; height: 180px; opacity: 1; transform: rotate(360deg); }
+
+        .selectedAdv{text-align: center; font-size: 15px; color: #FFF; padding-top: 30px; padding-bottom: 30px; }
+
+        .demo-2{margin: 20px auto; width: 300px;}
+
+        .demo-3{margin: 20px auto; width: 400px;}
+
+        .demo-4{margin: 20px auto; width: 300px;}
+
+        .demo-5{margin: 20px auto; width: 300px;}
+
+        .demo-6{margin: 20px auto; width: 300px;}
+
+        .demo-7{margin: 20px auto; width: 300px;}
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="imgAdv"><img src="res/Naruto-0.png" /></div>
+
+<div class="selectedAdv">SELECT</div>
+
+<div class="demo-1"></div>
+
+<div class="demo-2"></div>
+
+<div class="demo-3"></div>
+
+<div class="demo-4"></div>
+
+<div class="demo-5"></div>
+
+<div class="demo-6"></div>
+
+<div class="demo-7"></div>
+
+<!-- <script type="text/javascript" src="src/lib/zepto-1.1.6.js"></script> -->
+
+<script type="text/javascript" src="src/lib/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript" src="src/js/petrus-select-0.1.0.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    // demo代码，写得不是很严谨，只是为了展示效果
+
+    var init = function(){
+        console.warn("初始化完成");
+    }
+
+    var change = function(selected){
+        $('.imgAdv img').removeClass('show');
+
+        if(selected.length == 1){
+            $('.selectedAdv').html('');
+            $('.selectedAdv').html(selected[0]);
+        }
+
+        if(selected.length == 2){
+            $('.selectedAdv').html( ($('.selectedAdv').html() + '>>>' + selected[1] ) );
+            $('.imgAdv img').attr({
+                src: 'res/'+selected[1]+'.png'
+            });
+            setTimeout(function() {
+                $('.imgAdv img').addClass('show');
+            }, 0);
+        }
+    }
+
+    $.petrus_select({
+        $container: $('.demo-1'),
+        data: {
+            'Naruto': ['Naruto-0', 'Naruto-1', 'Naruto-2'],
+            'Dota2': ['Dota2-0', 'Dota2-1', 'Dota2-2', 'Dota2-3', 'Dota2-4'],
+            'Cartoon': ['Cartoon-0', 'Cartoon-1', 'Cartoon-2'],
+            'Gintama': []
+        },
+        callbacks: {
+            init: init,
+            change: change
+        }
+    });
+
+    $.petrus_select({
+        $container: $('.demo-2'),
+        styleName: 'white',
+        data: {
+            'Naruto': ['Naruto-0', 'Naruto-1', 'Naruto-2'],
+            'Dota2': ['Dota2-0', 'Dota2-1', 'Dota2-2', 'Dota2-3', 'Dota2-4'],
+            'Cartoon': ['Cartoon-0', 'Cartoon-1', 'Cartoon-2'],
+            'Gintama': []
+        }
+    });
+
+    $.petrus_select({
+        styleName: 'pink',
+        title: '宽度自动拉伸',
+        $container: $('.demo-3'),
+        data: {
+            'Naruto': ['Naruto-0', 'Naruto-1', 'Naruto-2'],
+            'Dota2': ['Dota2-0', 'Dota2-1', 'Dota2-2', 'Dota2-3', 'Dota2-4'],
+            'Cartoon': ['Cartoon-0', 'Cartoon-1', 'Cartoon-2'],
+            'Gintama': []
+        }
+    });
+
+    $.petrus_select({
+        styleName: 'green',
+        $container: $('.demo-4'),
+        data: {
+            'Naruto': ['Naruto-0', 'Naruto-1', 'Naruto-2'],
+            'Dota2': ['Dota2-0', 'Dota2-1', 'Dota2-2', 'Dota2-3', 'Dota2-4'],
+            'Cartoon': ['Cartoon-0', 'Cartoon-1', 'Cartoon-2'],
+            'Gintama': []
+        }
+    });
+
+    $('.demo-6').petrus_select({
+        styleName: 'grey',
+        title: '下载插件',
+        callbacks: {
+            titClicked: function(){
+                window.location.href = "https://www.github.com/pyrinelaw/petrus-select";
+            }
+        }
+    });
+
+    $('.demo-7').petrus_select({
+        styleName: 'black',
+        title: '更多插件',
+        callbacks: {
+            titClicked: function(){
+                window.location.href = "https://www.github.com/pyrinelaw/";
+            }
+        }
+    });
+});
+
+</script>
+</body>
+</html>
