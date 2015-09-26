@@ -1,30 +1,28 @@
 # petrus_select 下拉控件
 
-标签（空格分隔）： 控件 CSS3 jQuery zepto 前端
+标签（空格分隔）： 控件 CSS3 jQuery 前端
 
 ---
 
-
-##关于petrus_select
+## 关于petrus_select
 > * 下拉控件
-> * 自适应宽度
-> * 如需兼容IE10+，勿使用zepto库，请使用jQuery库
 > * 下载：https://github.com/pyrinelaw/petrus_select
 
-##引用js
-```javascript
-   <script type="text/javascript" src="src/lib/jquery-1.11.2.min.js"></script>
+## 调用
 
-<script type="text/javascript" src="src/js/petrus-select-0.1.0.js"></script>
+### 引用css
+```css
+<link rel="stylesheet" href="src/css/petrus-select.css" />
 ```
-需要`zepto或jQuery`库支持
-当然你也可以使用zepto：
+
+### 引用js
 ```javascript
-    <script type="text/javascript" src="src/lib/zepto-1.1.6.js"></script>
-    <script type="text/javascript" src="src/js/petrus-select-0.1.0.js"></script>
+<script type="text/javascript" src="src/lib/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="src/js/petrus-select-0.1.0.js"></script>
 ```
 
 ### 参数
+
 ```javascript
 defaultOptions = {
 	width: NaN,				// 自定义宽度，不定义随外部容器而变化
@@ -42,13 +40,17 @@ defaultOptions = {
 	}
 }
 ```
-## 自定义样式
+
+### 自定义样式
+
 在petrus-select.css参考如下样式
+
 ```css
 .petrus-blue-select *{ color: #FFF; }
 .petrus-blue-select .petrus-select-tit{ background: #2ECBD8; box-shadow: 0px 3px 0px rgba(46, 203, 216, 0.2); font-weight: bold; }
 .petrus-blue-select .petrus-select-list-wrap{background: #2ECBD8; box-shadow: 0px 3px 0px rgba(46, 203, 216, 0.2); font-weight: bold; }
 ```
+
 以上这段代码对应的是blue样式。(options.styleName)
 如有需要，请自行添加
 
@@ -59,7 +61,8 @@ defaultOptions = {
 }
 ```
 
-## 调用示例
+### 调用示例
+
 ```javascript
 $.petrus_select({
     $container: $('.demo'),
@@ -83,7 +86,9 @@ $.petrus_select({
     }
 });
 ```
+
 或者
+
 ```javascript
 $('.demo').petrus_select({
     ......
@@ -102,5 +107,4 @@ $('.demo').petrus_select({
 ------
 
 **Demo:** [http://pyrinelaw.github.io/petrus-select](http://pyrinelaw.github.io/petrus-select)
-
 **Download:** [https://www.github.com/pyrinelaw/petrus-select](https://www.github.com/pyrinelaw/petrus-select)
