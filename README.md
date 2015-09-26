@@ -107,4 +107,5 @@ $('.demo').petrus_select({
 ------
 
 **Demo:** [http://pyrinelaw.github.io/petrus-select](http://pyrinelaw.github.io/petrus-select)
+
 **Download:** [https://www.github.com/pyrinelaw/petrus-select](https://www.github.com/pyrinelaw/petrus-select)
